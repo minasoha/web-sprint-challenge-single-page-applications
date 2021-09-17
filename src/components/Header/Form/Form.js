@@ -16,6 +16,7 @@ export default function Form(props){
     const onSubmit = e =>{
         e.preventDefault();
         submit();
+        
     }
 
     const onChange = e =>{
@@ -29,9 +30,17 @@ export default function Form(props){
         <form id="pizza-form" className="form container" onSubmit={onSubmit}>
             <div className="build-pizza">
                 <div id="size" className="content">
+                <div className='errors'>
+
+                    <div>{errors.name}</div>
+                    <div>{errors.size}</div>
+                    <div>{errors.topping}</div>
+                    <div>{errors.sauce}</div>
+                </div>
                     <h3>Build Your Own Pizza</h3>
                     <h4>Choice of Size</h4>
                     <p>Required.</p>
+                    
                     <select
                         id="size-dropdown"
                         onChange={onChange}
@@ -51,33 +60,33 @@ export default function Form(props){
                         <input 
                             type="radio"
                             name="sauce"
-                            value={values.sauce}
+                            value='original red'
                             onChange={onChange}
-                            checked="Original Red"/>
+                            checked={values.sauce === 'original red'}/>
                     </label>
                     <label>Garlic Ranch
                         <input 
                             type="radio"
                             name="sauce"
-                            value={values.sauce}
+                            value='garlic ranch'
                             onChange={onChange}
-                            checked="Garlic Ranch"/>
+                            checked={values.sauce === 'garlic ranch'}/>
                     </label>
                     <label>BBQ Sauce
                         <input 
                             type="radio"
                             name="sauce"
-                            value={values.sauce}
+                            value='bbq sauce'
                             onChange={onChange}
-                            checked="BBQ Sauce"/>
+                            checked={values.sauce === 'bbq sauce'}/>
                     </label>
                     <label>Spinach Alfredo
                         <input 
                             type="radio"
                             name="sauce"
-                            value={values.sauce}
+                            value='spinach alfredo'
                             onChange={onChange}
-                            checked="Spinach Alfredo"/>
+                            checked={values.sauce === 'spinach alfredo'}/>
                     </label>
                 </div>
                 <div id="toppings" className="content">
@@ -88,49 +97,56 @@ export default function Form(props){
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="pepperoni"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Sausage
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="sausage"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Canadian Bacon
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="canadian bacon"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Spicy Italian Sausage
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="spicy italian sausage"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Grilled Chicken
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="grilled chicken"
+                           
                             onChange={onChange} />
                     </label>
                     <label>Onions
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="onions"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Green Peppers
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="green peppers"
+                           
                             onChange={onChange} />
                     </label>
                     </div>
@@ -139,49 +155,56 @@ export default function Form(props){
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="diced tomato"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Black Olives
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="black olives"
+                           
                             onChange={onChange} />
                     </label>
                     <label>Roasted Garlic
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="roasted garlic"
+                           
                             onChange={onChange} />
                     </label>
                     <label>Artichoke Hearts
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="artichoke hearts"
+                        
                             onChange={onChange} />
                     </label>
                     <label>Three Cheese
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="three cheese"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Pineapple
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="pineapple"
+                            
                             onChange={onChange} />
                     </label>
                     <label>Extra Cheese
                         <input 
                             type="checkbox"
                             name="topping"
-                            checked={values.topping}
+                            value="extra cheese"
+                            
                             onChange={onChange} />
                     </label>
                     </div>
@@ -209,18 +232,22 @@ export default function Form(props){
                 </div>
                     <input
                         type='number'
-                        id='orders'
+                        id='order-button'
                         name='orders'
                         value='1'
                         min="1"
                         max="5"
+                        onChange={onChange}
+
 
                         />
                     <input 
                         type='text'
                         id='name-input'
                         name='name'
+                        value={values.name}
                         placeholder='Please Enter Your Name'
+                        onChange={onChange}
                         />
 
                     <button> Add to Order $17.99</button>
