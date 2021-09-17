@@ -2,4 +2,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column wrap;
+    width: 100%;
+}
+
+#size {
+    align-self: auto;
+}
+
+#sauce {
+    align-self: auto;
+}
+
+#left-toppings {
+   display: flex;
+   justify-content: center;
+   flex-flow: column;
+   width: 50%;
+    
+}
+
+#right-toppings {
+    display: flex;
+   justify-content: center;
+   align-content: right;
+   flex-flow: column;
+   width: 50%;
 }

@@ -21,16 +21,18 @@ export default function Form(props){
     const onChange = e => {
         const { name, value, checked, type } = e.target;
         const valueToUse = type === 'checkbox' ? checked : value;
+        change(name,valueToUse)
     }
 
     return (
-        <form className="form container" onSubmit={onSubmit}>
+        <form id="pizza-form" className="form container" onSubmit={onSubmit}>
             <div className="build-pizza">
                 <div id="size" className="content">
                     <h3>Build Your Own Pizza</h3>
                     <h4>Choice of Size</h4>
                     <p>Required.</p>
                     <select
+                        id="size-dropdown"
                         onChange={onChange}
                         value="Size"
                         name="size">
@@ -80,7 +82,7 @@ export default function Form(props){
                 <div id="toppings" className="content">
                     <h4>Add Toppings</h4>
                     <p>Choose up to 10.</p>
-
+                    <div id='left-toppings'>
                     <label>Pepperoni
                         <input 
                             type="checkbox"
@@ -130,6 +132,8 @@ export default function Form(props){
                             checked="Green Peppers"
                             onChange={onChange} />
                     </label>
+                    </div>
+                    <div id="right-topping">
                     <label>Diced Tomato
                         <input 
                             type="checkbox"
@@ -179,9 +183,10 @@ export default function Form(props){
                             checked="Extra Cheese"
                             onChange={onChange} />
                     </label>
+                    </div>
                     
                 </div>
-                <div className="content">
+                <div id="subs" className="content">
                     <h4>Choice of substitute</h4>
                     <p>Choose up to 1.</p>
                     <label>Gluten Free Crust (+ $1.00)
@@ -192,14 +197,13 @@ export default function Form(props){
                             onChange={onChange} />
                     </label>
                 </div>
-
-                <div className="content">
+                <div id="instructions" className="content">
                     <h4>Special Instructions</h4>
                     <input
                         type="text"
                         name="instructions"
                         placeholder="Anything else you'd like to add?"
-                        id="name-input"
+                        id="special-text"
                         />
                 </div>
                     <input
@@ -211,6 +215,13 @@ export default function Form(props){
                         max="5"
 
                         />
+                    <input 
+                        type='text'
+                        id='name-input'
+                        name='name'
+                        placeholder='Please Enter Your Name'
+                        />
+
                     <button> Add to Order $17.99</button>
             </div>
 
